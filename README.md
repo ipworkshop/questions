@@ -21,7 +21,7 @@ New App steps
         mkdir public
         cd public
         bower init
-        bowert install ... -save
+        bower install ... -save
         cd ..
         # make package.json
         npm install express -save
