@@ -1,0 +1,19 @@
+ul 
+{
+	list-style: none;
+}
+
+.ng-dirty.ng-invalid
+{
+	border-color: red;
+}
+
+.ng-dirty.ng-valid
+{
+	border-color: green;
+}
+
+.correct
+{
+	color: green;
+};
