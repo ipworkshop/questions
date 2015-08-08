@@ -4,13 +4,13 @@ Questions
 Install
 =======
 
-  npm install
-  cd public
-  bower install
+    npm install
+    cd public
+    bower install
 
 Run
 ===
 
-  npm start
+    npm start
 
 
