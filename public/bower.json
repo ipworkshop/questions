@@ -14,8 +14,8 @@
   ],
   "dependencies": {
     "angular": "~1.4.3",
-    "bootstrap": "~3.3.5",
     "localforage": "~1.2.7",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "semantic-ui": "~2.0.7"
   }
 }

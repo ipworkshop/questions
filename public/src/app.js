@@ -2,33 +2,37 @@
 {
 	var app = angular.module ('quizes', []);
 
-	app.directive ('questions', function ()
+	app.directive ('questions', ['Questions', function (Questions)
 	{
+		console.log ('questions')
 		return {
 			restrict: 'E',
 			templateUrl: 'html/questions.html',
 			controller: function ($scope)
 			{
+				console.log ('load');
 				// popquizes.questionsChanged = function (questions)
 				// {
 				// 	this.questions = questions;
 				// 	$scope.$apply ();
 				// });
-				this.questions = popquizes.questions;
-				popquizes.load (function ()
+				$scope.questions = [];
+				Questions.load (function (value)
 					{
+						$scope.questions = value;
 						$scope.$apply ();
 					});
 			},
 			controllerAs: 'questionsCtrl'
 		};
-	});
+	}]);
 
 	app.directive ('question', function ()
 	{
 		return {
 			restrict: 'E',
 			templateUrl: 'html/question.html',
+			replace: true,
 			scope:
 			{
 				question: "=",
@@ -42,7 +46,7 @@
 		};
 	});
 
-	app.directive ('answer', function ()
+	app.directive ('answer', ['Questions', function (Questions)
 	{
 		return {
 			restrict: 'E',
@@ -54,24 +58,24 @@
 				qid: "=",
 				correct: "="
 			},
-			controller: function ($scope)
+			controller: function ($scope, Questions)
 			{
 				this.remove = function ()
 				{
-					popquizes.removeAnswer ($scope.qid, $scope.aid);
+					Questions.removeAnswer ($scope.qid, $scope.aid);
 				};
 
-				this.setCorrect = function (aid)
+				this.setCorrect = function ()
 				{
-					console.log (aid);
-					popquizes.setCorrect ($scope.qid, $scope.aid);
+					// console.log (aid);
+					Questions.setCorrect ($scope.qid, $scope.aid);
 				};
 			},
 			controllerAs: 'answerCtrl'
 		};
-	});
+	}]);
 
-	app.directive ('newAnswer', function ()
+	app.directive ('newAnswer', ['Questions', function (Questions)
 	{
 		return {
 			restrict: 'E',
@@ -87,13 +91,13 @@
 				this.addAnswer = function ()
 				{
 					console.log ('new answer');
-					popquizes.addAnswer ($scope.qid, $scope.answer, $scope.correct);
+					Questions.addAnswer ($scope.qid, $scope.answer, $scope.correct);
 					$scope.answer = '';
 					$scope.correct = false;
 				}
 			},
 			controllerAs: 'newAnswerCtrl'
 		};
-	});
+	}]);
 
 })();

@@ -1,9 +1,10 @@
-{{question.text}}
-<form>
-	<ul>
-		<li ng-repeat="(aid, a) in question.answers track by $index">
-			<answer qid="qid" correct="question.correct" answer="a" aid="aid"></answer>
-		</li>
-	</ul>
-</form>
-<new-answer qid="qid"></new-answer>
+<div class="ui item message">
+	<div class="header">{{question.text}}</div>
+	<div class="ui divider"></div>
+	<form>
+			<div class="content" ng-repeat="(aid, a) in question.answers track by $index">
+				<answer qid="qid" correct="question.correct" answer="a" aid="aid"></answer>
+			</div>
+	</form>
+	<new-answer qid="qid"></new-answer>
+</div>

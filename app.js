@@ -1,10 +1,12 @@
 
+/*jslint node: true */
+
 "use strict";
 
-var express = require ("express");
+var express = require("express");
 var morgan = require('morgan');
 
-var app = express ();
+var app = express();
 
 app.use(morgan('dev'));
 

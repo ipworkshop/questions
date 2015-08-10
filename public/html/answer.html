@@ -1,5 +1,16 @@
-<label for="{{'answer'+qid+''+aid}}" ng-class="{correct: correct===aid}">
-	<input name="{{qid}}" id="{{'answer'+qid+''+aid}}" type="radio"></input>{{answer}}
-</label>
-<a class="btn btn-info" ng-click="answerCtrl.setCorrect()">Correct</a>
-<a class="btn btn-danger" ng-click="answerCtrl.remove ()">Delete</a>
+<div class="ui sixteen grid">
+	<div class="row">
+		<div class="one wide column"></div>
+		<div class="eight wide column">
+			<label for="{{'answer'+qid+''+aid}}" ng-class="{correct: correct===aid}">
+				<input name="{{qid}}" id="{{'answer'+qid+''+aid}}" type="radio"></input>{{answer}}
+			</label>
+		</div>
+		<div class="three wide column">
+			<button class="ui button green" ng-click="answerCtrl.setCorrect()">Correct</button>
+		</div>
+		<div class="three wide column">
+			<a class="ui button red" ng-click="answerCtrl.remove ()">Delete</a>
+		</div>
+	</div>
+</div>
